@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Encode</string>
+    <string name="btn_Registration">Ещё не зарегистрированны? Самое время!</string>
+    <string name="btn_LogIn">Войти</string>
+    <string name="TextBlock_LogIn">Логин</string>
+    <string name="TextBlock_Password">Пароль</string>
+    <string name="LoadingText">Загрузка...</string>
+    <string name="MenuBtn_SelectRadioBtn">Выбрать шифр</string>
+
+</resources>
