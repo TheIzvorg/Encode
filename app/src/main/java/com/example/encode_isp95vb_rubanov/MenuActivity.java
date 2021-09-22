@@ -1,5 +1,6 @@
 package com.example.encode_isp95vb_rubanov;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -32,6 +33,7 @@ public class MenuActivity extends AppCompatActivity {
     void addNewRadioBtnInGroup(String name){
         RadioButton radioButton = new RadioButton(this);
         radioButton.setText(name);
+        radioButton.setTextSize(26);
         radioGroup.addView(radioButton);
     }
 
@@ -41,7 +43,9 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void onClickSelectRadioBtn(View view) {
-        radioGroup.getCheckedRadioButtonId();
-
+        Intent intent = new Intent(this, EncodeActivity.class);
+        int checkedBtnId = radioGroup.getCheckedRadioButtonId();
+        intent.putExtra("cipherId",checkedBtnId);
+        startActivity(intent);
     }
 }

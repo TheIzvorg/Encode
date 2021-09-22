@@ -16,4 +16,6 @@ public class EncodeActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
+
+
 }
