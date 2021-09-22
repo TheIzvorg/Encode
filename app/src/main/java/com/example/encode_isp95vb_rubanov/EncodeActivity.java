@@ -1,6 +1,8 @@
 package com.example.encode_isp95vb_rubanov;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,5 +19,8 @@ public class EncodeActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-
+    public void onClickBack(View view){
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+    }
 }

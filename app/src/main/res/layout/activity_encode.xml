@@ -61,13 +61,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.046" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="82dp"
-        android:layout_height="79dp"
-        android:background="@color/AntiqueWhite"
-        android:scrollbarSize="8dp"
-        app:srcCompat="@drawable/ic_launcher_foreground"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="3dp" />
+    <Button
+        android:id="@+id/button"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/exitpng"
+        android:onClick="onClickBack"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="-1dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
