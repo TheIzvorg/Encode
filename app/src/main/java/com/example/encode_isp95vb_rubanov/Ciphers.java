@@ -3,22 +3,15 @@ package com.example.encode_isp95vb_rubanov;
 import java.util.List;
 import java.util.Locale;
 
-interface IDecode{
+interface ICipher {
     String Cheaser(String text, int key);
     String Vigener(String msg, String key);
     String Gronsfeld(String text, int number);
 }
-
-interface IEncode{
-    String Cheaser(String text, int key);
-    String Vigener(String msg, String key);
-    String Gronsfeld(String text, int number);
-}
-
-public class Chipers {
+public class Ciphers {
     private static List<Character> alph;
 
-    public Chipers(){
+    public Ciphers(){
         for (char ch = 'А'; ch < 'Я'; ch++){
             alph.add(ch);
             if (ch == 'Е') alph.add('Ё');
@@ -38,7 +31,7 @@ public class Chipers {
         return isChecked;
     }
 
-    public static class Encode implements IEncode{
+    public static class Encode implements ICipher {
 
         @Override
         public String Cheaser(String text, int key) {
@@ -134,7 +127,7 @@ public class Chipers {
         }
     }
 
-    public static class Decode implements IDecode{
+    public static class Decode implements ICipher {
 
         @Override
         public String Cheaser(String text, int key) {

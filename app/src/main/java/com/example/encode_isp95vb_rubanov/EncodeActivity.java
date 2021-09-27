@@ -12,7 +12,7 @@ public class EncodeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_encode);
-        Chipers.Encode encode = new Chipers.Encode();
+        Ciphers.Encode encode = new Ciphers.Encode();
 
     }
 
