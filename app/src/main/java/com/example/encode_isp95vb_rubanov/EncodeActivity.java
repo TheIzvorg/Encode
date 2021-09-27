@@ -12,6 +12,8 @@ public class EncodeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_encode);
+        Chipers.Encode encode = new Chipers.Encode();
+
     }
 
     @Override
@@ -22,5 +24,6 @@ public class EncodeActivity extends AppCompatActivity {
     public void onClickBack(View view){
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
+
     }
 }
