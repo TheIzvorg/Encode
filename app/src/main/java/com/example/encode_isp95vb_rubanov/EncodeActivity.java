@@ -12,8 +12,7 @@ public class EncodeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_encode);
-        Ciphers.Encode encode = new Ciphers.Encode();
-
+        getIntent().getIntExtra("cipherId",0);
     }
 
     @Override

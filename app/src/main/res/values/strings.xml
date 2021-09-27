@@ -5,6 +5,8 @@
     <string name="TextBlock_LogIn">Логин</string>
     <string name="TextBlock_Password">Пароль</string>
     <string name="LoadingText">Загрузка...</string>
-    <string name="MenuBtn_SelectRadioBtn">Выбрать шифр</string>
+    <string name="MenuBtn_SelectRadioBtn">Далее</string>
+    <string name="MenuBtn_OpenSettings">Настройки</string>
+    <string name="MenuTextBox_Heading">Выберите шифр</string>
 
 </resources>

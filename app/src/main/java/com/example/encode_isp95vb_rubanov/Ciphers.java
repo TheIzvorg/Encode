@@ -33,6 +33,16 @@ public class Ciphers {
 
     public static class Encode implements ICipher {
 
+        /*
+        public int Count;
+
+        public Encode(){
+            Count = ICipher.class.getDeclaredMethods().length;
+        }
+        */
+
+        // По-моему шифр Виженера и Гронсфильда возможно упростить до шифра Цезаря
+        // Чтобы избавиться от повторения нескольких участков кода
         @Override
         public String Cheaser(String text, int key) {
             StringBuilder result = new StringBuilder();

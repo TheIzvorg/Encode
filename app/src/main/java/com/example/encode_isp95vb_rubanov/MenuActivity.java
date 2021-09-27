@@ -25,7 +25,6 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         radioGroup = findViewById(R.id.radioGroup);
         addNewRadioBtnInGroup("Шифр Цезаря");
-        addNewRadioBtnInGroup("Азбука Морзе");
         addNewRadioBtnInGroup("Шифр Виженера");
         addNewRadioBtnInGroup("Шифр Гронсфельда");
     }
@@ -47,5 +46,10 @@ public class MenuActivity extends AppCompatActivity {
         int checkedBtnId = radioGroup.getCheckedRadioButtonId();
         intent.putExtra("cipherId",checkedBtnId);
         startActivity(intent);
+    }
+
+    public void onClickOpenSettings(View view) {
+        // Intent intent = new Intent(this, SettingsActivity.class);
+        // startActivity(intent);
     }
 }
