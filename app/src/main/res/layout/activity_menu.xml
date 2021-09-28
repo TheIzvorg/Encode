@@ -10,6 +10,7 @@
         android:id="@+id/menuBtn_SelectRadioBtn"
         android:layout_width="118dp"
         android:layout_height="50dp"
+        android:enabled="false"
         android:onClick="onClickSelectRadioBtn"
         android:text="@string/MenuBtn_SelectRadioBtn"
         android:textSize="18sp"
@@ -31,16 +32,17 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.144" />
+        app:layout_constraintVertical_bias="0.198" />
 
     <ScrollView
-        android:layout_width="349dp"
-        android:layout_height="379dp"
+        android:layout_width="350dp"
+        android:layout_height="320dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.463">
+        app:layout_constraintVertical_bias="0.498">
 
         <RadioGroup
             android:id="@+id/radioGroup"
