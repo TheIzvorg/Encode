@@ -162,18 +162,22 @@ public class Ciphers {
                     continue;
                 }
 
-                for (int j = 0; j < alph.size(); j++){
-                    if (symbol == alph.get(j)){
-                        if(j - key < 0) {
-                            key -= j + 1;
-                            j = alph.size()-1;
-                        }
-                        symbol = alph.get(j-key);
-                        break;
-                    }
-                }
+                int index = alph.indexOf(symbol) - key;
+                index = index < 0 ? index + alph.size() : index;
+                result.append(alph.get(index));
 
-                result.append(symbol);
+//                for (int j = 0; j < alph.size(); j++){
+//                    if (symbol == alph.get(j)){
+//                        if(j - key < 0) {
+//                            key -= j + 1;
+//                            j = alph.size()-1;
+//                        }
+//                        symbol = alph.get(j-key);
+//                        break;
+//                    }
+//                }
+//
+//                result.append(symbol);
             }
             return result.toString();
         }
@@ -183,36 +187,42 @@ public class Ciphers {
             StringBuilder result = new StringBuilder();
             msg = msg.toUpperCase(Locale.ROOT);
             key = key.toUpperCase(Locale.ROOT);
-            for (int i = 0; i < msg.length(); i++){
+            for (int i = 0, j = 0; i < msg.length(); i++){
 
                 char msgSymbol = msg.charAt(i);
-                char keySymbol = key.charAt(i % key.length());
+                char keySymbol = key.charAt(j % key.length());
 
-                if (!isSymbolInAlphabet(msgSymbol)) {
-                    result.append(msgSymbol);
-                    continue;
+                if (!isSymbolInAlphabet(keySymbol)) {
+                    // TODO: Сделать вывод ошибки, при неправильных символах в ключе
+                    return "ERROR";
                 }
 
-                int inter = 0; // а
+                result.append(Cheaser(String.valueOf(msgSymbol), alph.indexOf(keySymbol)));
+                j++;
+//                int index = alph.indexOf(msgSymbol) - alph.indexOf(keySymbol);
+//                index = index < 0 ? index + alph.size() : index;
+//                result.append(alph.get(index));
 
-                for (int j = 0; j < alph.size(); j++){
-                    if (alph.get(j) == msgSymbol) { inter += j; break;} // Б
-                }
-
-                for (int j = 0; j < alph.size(); j++){
-                    if (alph.get(j) == keySymbol) {
-                        if (inter - j < 0) { // Б-В = -1
-                            j -= inter + 1; // 0
-                            inter = alph.size() - 1; // Я
-                        }
-                        inter -= j;
-                        break;
-                    }
-                }
-
-                char newSymbol = alph.get(inter % alph.size());
-
-                result.append(newSymbol);
+//                int inter = 0; // а
+//
+//                for (int j = 0; j < alph.size(); j++){
+//                    if (alph.get(j) == msgSymbol) { inter += j; break;} // Б
+//                }
+//
+//                for (int j = 0; j < alph.size(); j++){
+//                    if (alph.get(j) == keySymbol) {
+//                        if (inter - j < 0) { // Б-В = -1
+//                            j -= inter + 1; // 0
+//                            inter = alph.size() - 1; // Я
+//                        }
+//                        inter -= j;
+//                        break;
+//                    }
+//                }
+//
+//                char newSymbol = alph.get(inter % alph.size());
+//
+//                result.append(newSymbol);
             }
 
             return result.toString();
@@ -236,32 +246,39 @@ public class Ciphers {
         public String Gronsfeld(String text, int[] numbers){
             StringBuilder result = new StringBuilder();
             text = text.toUpperCase(Locale.ROOT);
-            for (int i = 0; i < text.length(); i++){
+            for (int i = 0, j = 0; i < text.length(); i++){
 
                 char msgSymbol = text.charAt(i);
-                int key = numbers[i % numbers.length];
+                int key = numbers[j % numbers.length];
 
-                if (!isSymbolInAlphabet(msgSymbol)) {
-                    result.append(msgSymbol);
-                    continue;
-                }
+                result.append(Cheaser(String.valueOf(msgSymbol),key));
+                j++;
 
-                int pos = 0;
+//                int alphabetPos = alph.indexOf(msgSymbol) - key;
+//                alphabetPos = alphabetPos < 0 ? alphabetPos + alph.size() : alphabetPos;
+//                result.append(alph.get(alphabetPos));
 
-                for (int j = 0; j < alph.size(); j++){
-                    if (msgSymbol == alph.get(j)) {
-                        pos = j;
-                        break;
-                    }
-                }
-                if (pos < key){
-                    key -= pos + 1;
-                    pos = alph.size() - 1;
-                }
-                int alphabetPos = pos - key;
-                char newSymbol = alph.get(alphabetPos);
+//                if (!isSymbolInAlphabet(msgSymbol)) {
+//                    result.append(msgSymbol);
+//                    continue;
+//                }
 
-                result.append(newSymbol);
+//                int pos = 0;
+
+//                for (int j = 0; j < alph.size(); j++){
+//                    if (msgSymbol == alph.get(j)) {
+//                        pos = j;
+//                        break;
+//                    }
+//                }
+//                if (pos < key){
+//                    key -= pos + 1;
+//                    pos = alph.size() - 1;
+//                }
+//                int alphabetPos = pos - key;
+//                char newSymbol = alph.get(alphabetPos);
+
+//                result.append(newSymbol);
             }
             return result.toString();
         }
