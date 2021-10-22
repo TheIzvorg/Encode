@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Encode_ISP95VB_Rubanov">
         <activity
-            android:name=".LogoActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,9 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".MenuActivity" />
         <activity android:name=".EncodeActivity" />
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".LogoActivity" />
+        <activity android:name=".SettingsActivity" />
     </application>
 
 </manifest>

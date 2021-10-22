@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_Registration">Ещё не зарегистрированны? Самое время!</string>
+    <string name="btn_LogIn">Sing In</string>
+    <string name="TextBlock_LogIn">Login</string>
+    <string name="TextBlock_Password">Password</string>
+    <string name="LoadingText">Loading…</string>
+    <string name="MenuBtn_SelectRadioBtn">Next</string>
+    <string name="MenuBtn_OpenSettings">Settings</string>
+    <string name="MenuTextBox_Heading">Choose chiper</string>
+    <string name="CipherBtnName1">Encode</string>
+    <string name="CipherBtnName2">Decode</string>
+    <string name="CheckBoxVolumeOff">Volume off</string>
+    <string name="TextBox_ChooseLang">App language</string>
+    <string name="CheaserChiper">Cheaser Chiper</string>
+    <string name="VishenereChiper">Vishenere Chiper</string>
+    <string name="GronfieldChiper">Gronfield Chiper</string>
+    <string name="Back">Back</string>
+    <string name="TextBoxKey">Key:</string>
+    <string name="EncodeAct">Encode Act</string>
+    <string name="DecodeAct">Decode Act</string>
+    <string name="Result">Result</string>
+</resources>

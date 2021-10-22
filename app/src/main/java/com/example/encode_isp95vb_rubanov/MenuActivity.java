@@ -21,21 +21,32 @@ public class MenuActivity extends AppCompatActivity {
     RadioGroup radioGroup;
     Button SelectRadioBtn;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+    void init(){
         radioGroup = findViewById(R.id.radioGroup);
+        SelectRadioBtn = findViewById(R.id.menuBtn_SelectRadioBtn);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 SelectRadioBtn.setEnabled(true);
             }
         });
-        SelectRadioBtn = findViewById(R.id.menuBtn_SelectRadioBtn);
-        addNewRadioBtnInGroup("Шифр Цезаря");
-        addNewRadioBtnInGroup("Шифр Виженера");
-        addNewRadioBtnInGroup("Шифр Гронсфельда");
+        addNewRadioBtnInGroup(R.string.CheaserChiper);
+        addNewRadioBtnInGroup(R.string.VishenereChiper);
+        addNewRadioBtnInGroup(R.string.GronfieldChiper);
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_menu);
+        init();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        setContentView(R.layout.activity_menu);
+        init();
     }
 
     void addNewRadioBtnInGroup(String name){
@@ -43,6 +54,10 @@ public class MenuActivity extends AppCompatActivity {
         radioButton.setText(name);
         radioButton.setTextSize(26);
         radioGroup.addView(radioButton);
+    }
+
+    void addNewRadioBtnInGroup(int rId){
+        addNewRadioBtnInGroup(getResources().getString(rId));
     }
 
     @Override
@@ -58,7 +73,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void onClickOpenSettings(View view) {
-        // Intent intent = new Intent(this, SettingsActivity.class);
-        // startActivity(intent);
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
     }
 }

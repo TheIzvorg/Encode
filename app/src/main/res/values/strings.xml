@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Encode</string>
+    <string name="app_name" translatable="false">Encode</string>
     <string name="btn_Registration">Ещё не зарегистрированны? Самое время!</string>
     <string name="btn_LogIn">Войти</string>
     <string name="TextBlock_LogIn">Логин</string>
@@ -10,5 +10,17 @@
     <string name="MenuTextBox_Heading">Выберите шифр</string>
     <string name="CipherBtnName1">Зашифровать</string>
     <string name="CipherBtnName2">Расшифровать</string>
+    <string name="CheckBoxVolumeOff">Выключить звук</string>
+    <string name="TextBox_ChooseLang">Язык приложения</string>
+    <string name="RussianLang" translatable="false">Русский</string>
+    <string name="EnglishLang" translatable="false">English</string>
+    <string name="Back">Назад</string>
+    <string name="CheaserChiper">Шифр Цезаря</string>
+    <string name="VishenereChiper">Шифр Виженера</string>
+    <string name="GronfieldChiper">Шифр Гронсфельда</string>
+    <string name="TextBoxKey">Ключ:</string>
+    <string name="EncodeAct">Зашифровка</string>
+    <string name="DecodeAct">Расшифровка</string>
+    <string name="Result">Результат</string>
 
 </resources>

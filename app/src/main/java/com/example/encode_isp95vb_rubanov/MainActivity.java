@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +31,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void LogInToSystem(View view) {
-        if (!ValidUserData()) return;
+        if (ValidUserData()) {
+            Toast.makeText(this,"Неверный логин или пароль",Toast.LENGTH_LONG).show();
+            textBox_Password.setText("");
+            return;
+        }
         Intent intent = new Intent(MainActivity.this, MenuActivity.class);
         startActivity(intent);
     }
@@ -38,9 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean ValidUserData() {
         String login = textBox_Login.getText().toString();
         String password = textBox_Password.getText().toString();
-        if (!login.equals("admin")) return false;
-        if (!password.equals("admin")) return false;
-        return true;
+        return login == "admin" && password == "admin";
     }
 
     public void goToSignInWindow(View view) {
