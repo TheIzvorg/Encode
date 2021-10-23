@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void LogInToSystem(View view) {
         if (ValidUserData()) {
-            Toast.makeText(this,"Неверный логин или пароль",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Неверный логин или пароль",Toast.LENGTH_SHORT).show();
             textBox_Password.setText("");
             return;
         }
-        Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+        Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 

@@ -128,12 +128,14 @@ public class SettingsActivity extends AppCompatActivity {
                     case 0:
                         setLocale(SettingsActivity.this,"ru");
                         newLang = R.string.RussianLang;
-                        Toast.makeText(SettingsActivity.this, "Выбран Русский язык", Toast.LENGTH_LONG).show();
+                        Toast.makeText(SettingsActivity.this, "Выбран Русский язык",
+                                Toast.LENGTH_LONG).show();
                         break;
                     case 1:
                         setLocale(SettingsActivity.this,"en");
                         newLang = R.string.EnglishLang;
-                        Toast.makeText(SettingsActivity.this, "Choosed English language", Toast.LENGTH_LONG).show();
+                        Toast.makeText(SettingsActivity.this, "Choosed English language",
+                                Toast.LENGTH_LONG).show();
                         break;
                 }
                 Settings.setCurrLocaleResId(newLang);

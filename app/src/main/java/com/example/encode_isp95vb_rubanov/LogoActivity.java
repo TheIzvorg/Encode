@@ -23,18 +23,19 @@ public class LogoActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         imageView2 = findViewById(R.id.imageView2);
 
-        Animation animation = AnimationUtils.loadAnimation(LogoActivity.this, R.anim.rotate);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate);
         imageView.startAnimation(animation);
-        animation = AnimationUtils.loadAnimation(LogoActivity.this, R.anim.alpha_rotated);
+
+        animation = AnimationUtils.loadAnimation(this, R.anim.alpha_rotated);
         imageView2.startAnimation(animation);
+
         Thread thread = new Thread(){
             public void run(){
                 try {
                     TimeUnit.SECONDS.sleep(5);
                     Intent intent = new Intent(LogoActivity.this, MainActivity.class);
                     startActivity(intent);
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
