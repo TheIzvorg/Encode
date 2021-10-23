@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Encode_ISP95VB_Rubanov">
         <activity
-            android:name=".MainActivity"
+            android:name=".LogoActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

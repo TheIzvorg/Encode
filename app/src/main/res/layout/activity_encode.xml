@@ -33,7 +33,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textBlock_EncodeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/EncodeAct"
@@ -79,6 +79,7 @@
         android:layout_width="48dp"
         android:layout_height="57dp"
         android:background="@drawable/swap"
+        android:onClick="onClickSwap"
         app:layout_constraintBottom_toTopOf="@+id/TextBox_Result"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.916"
@@ -120,6 +121,7 @@
         android:id="@+id/btn_ChiperAct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onClickCipherActBtn"
         android:text="@string/CipherBtnName1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

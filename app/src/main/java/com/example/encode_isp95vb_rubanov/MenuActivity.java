@@ -53,6 +53,7 @@ public class MenuActivity extends AppCompatActivity {
         RadioButton radioButton = new RadioButton(this);
         radioButton.setText(name);
         radioButton.setTextSize(26);
+        radioButton.setId(radioGroup.getChildCount());
         radioGroup.addView(radioButton);
     }
 

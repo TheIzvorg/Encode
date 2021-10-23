@@ -22,21 +22,28 @@ public class Ciphers {
         }
     }
 
+    private static int reverseInt(Integer number){
+        long reversedNum = 0;
+        long input_long = number;
+
+        while (input_long != 0) {
+            reversedNum = reversedNum * 10 + input_long % 10;
+            input_long = input_long / 10;
+        }
+
+        if (reversedNum > Integer.MAX_VALUE || reversedNum < Integer.MIN_VALUE) {
+            throw new IllegalArgumentException();
+        }
+
+        return (int) reversedNum;
+    }
+
     private static boolean isSymbolInAlphabet(char ch){
         boolean isChecked = false;
 
         if (alph.contains(ch)){
             isChecked = true;
         }
-
-        /*
-        for (int j = 0; j < alph.size(); j++) {
-            if (ch == alph.get(j)) {
-                isChecked = true;
-                break;
-            }
-        }
-        */
 
         return isChecked;
     }
@@ -46,14 +53,6 @@ public class Ciphers {
         public Encode(){
             fillAlph();
         }
-
-        /*
-        public int Count;
-
-        public Encode(){
-            Count = ICipher.class.getDeclaredMethods().length;
-        }
-        */
 
         // По-моему шифр Виженера и Гронсфильда возможно упростить до шифра Цезаря
         // Чтобы избавиться от повторения нескольких участков кода
@@ -113,14 +112,12 @@ public class Ciphers {
 //                numbers[i] = Integer.parseInt(String.valueOf(charNumbers[i]));
 //            }
 
-            int Length = key.toString().length(); // key = 6152
+            int Length = key.toString().length();
             int[] numbers = new int[Length];
 
-            key = Integer.reverse(key); // key = 2516
-
-            for (int i = 0; i < Length; i++){
-                numbers[i] = key % 10; // {6, 1, 5, 2}
-                key /= 10; // key = 251, key = 25, key = 2, key = 0;
+            for(int i = 0; key != 0; i++){
+                numbers[i] = numbers[i] * 10 + key % 10;
+                key = key / 10;
             }
 
             return Gronsfeld(text, numbers);
@@ -162,22 +159,9 @@ public class Ciphers {
                     continue;
                 }
 
-                int index = alph.indexOf(symbol) - key;
+                int index = alph.indexOf(symbol) - (key % alph.size());
                 index = index < 0 ? index + alph.size() : index;
                 result.append(alph.get(index));
-
-//                for (int j = 0; j < alph.size(); j++){
-//                    if (symbol == alph.get(j)){
-//                        if(j - key < 0) {
-//                            key -= j + 1;
-//                            j = alph.size()-1;
-//                        }
-//                        symbol = alph.get(j-key);
-//                        break;
-//                    }
-//                }
-//
-//                result.append(symbol);
             }
             return result.toString();
         }
@@ -199,30 +183,6 @@ public class Ciphers {
 
                 result.append(Cheaser(String.valueOf(msgSymbol), alph.indexOf(keySymbol)));
                 j++;
-//                int index = alph.indexOf(msgSymbol) - alph.indexOf(keySymbol);
-//                index = index < 0 ? index + alph.size() : index;
-//                result.append(alph.get(index));
-
-//                int inter = 0; // а
-//
-//                for (int j = 0; j < alph.size(); j++){
-//                    if (alph.get(j) == msgSymbol) { inter += j; break;} // Б
-//                }
-//
-//                for (int j = 0; j < alph.size(); j++){
-//                    if (alph.get(j) == keySymbol) {
-//                        if (inter - j < 0) { // Б-В = -1
-//                            j -= inter + 1; // 0
-//                            inter = alph.size() - 1; // Я
-//                        }
-//                        inter -= j;
-//                        break;
-//                    }
-//                }
-//
-//                char newSymbol = alph.get(inter % alph.size());
-//
-//                result.append(newSymbol);
             }
 
             return result.toString();
@@ -233,11 +193,9 @@ public class Ciphers {
             int Length = String.valueOf(key).length();
             int[] numbers = new int[Length];
 
-            key = Integer.reverse(key);
-
-            for (int i = 0; i < Length; i++){
-                numbers[i] = key % 10;
-                key /= 10;
+            for(int i = 0; key != 0; i++){
+                numbers[i] = numbers[i] * 10 + key % 10;
+                key = key / 10;
             }
 
             return Gronsfeld(text, numbers);
@@ -253,32 +211,6 @@ public class Ciphers {
 
                 result.append(Cheaser(String.valueOf(msgSymbol),key));
                 j++;
-
-//                int alphabetPos = alph.indexOf(msgSymbol) - key;
-//                alphabetPos = alphabetPos < 0 ? alphabetPos + alph.size() : alphabetPos;
-//                result.append(alph.get(alphabetPos));
-
-//                if (!isSymbolInAlphabet(msgSymbol)) {
-//                    result.append(msgSymbol);
-//                    continue;
-//                }
-
-//                int pos = 0;
-
-//                for (int j = 0; j < alph.size(); j++){
-//                    if (msgSymbol == alph.get(j)) {
-//                        pos = j;
-//                        break;
-//                    }
-//                }
-//                if (pos < key){
-//                    key -= pos + 1;
-//                    pos = alph.size() - 1;
-//                }
-//                int alphabetPos = pos - key;
-//                char newSymbol = alph.get(alphabetPos);
-
-//                result.append(newSymbol);
             }
             return result.toString();
         }

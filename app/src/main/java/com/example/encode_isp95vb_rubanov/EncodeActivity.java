@@ -2,7 +2,9 @@ package com.example.encode_isp95vb_rubanov;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -13,20 +15,31 @@ public class EncodeActivity extends AppCompatActivity {
     int cipherId;
     boolean isEncode = true;
 
-    TextView msgBox;
-    TextView resultBox;
-    TextView keyBox;
+    TextView msgBox, resultBox, keyBox;
+    TextView textBlock_EncodeTitle;
+    Button btn_ChiperAct;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_encode);
 
+        cipherId = getIntent().getIntExtra("cipherId",0);
+
         msgBox = findViewById(R.id.TextBox_Message);
         resultBox = findViewById(R.id.TextBox_Result);
         keyBox = findViewById(R.id.TextBox_Key);
+        btn_ChiperAct = findViewById(R.id.btn_ChiperAct);
+        textBlock_EncodeTitle = findViewById(R.id.textBlock_EncodeTitle);
 
-        cipherId = getIntent().getIntExtra("cipherId",0);
+        if(cipherId != 1){
+            keyBox.setInputType(InputType.TYPE_CLASS_NUMBER);
+        } else {
+            keyBox.setInputType(InputType.TYPE_CLASS_TEXT);
+        }
+
+        resultBox.setInputType(InputType.TYPE_NULL);
+        resultBox.setTextIsSelectable(true);
 
     }
 
@@ -38,7 +51,6 @@ public class EncodeActivity extends AppCompatActivity {
     public void onClickBack(View view){
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
-
     }
 
     public void onClickCipherActBtn(View view) {
@@ -54,17 +66,28 @@ public class EncodeActivity extends AppCompatActivity {
         String result = "";
 
         switch (cipherId){
-            case 1:
+            case 0:
                 result = cipher.Cheaser(msg, Integer.parseInt(key));
                 break;
-            case 2:
+            case 1:
                 result = cipher.Vigener(msg, key);
                 break;
-            case 3:
+            case 2:
                 result = cipher.Gronsfeld(msg, Integer.parseInt(key));
                 break;
         }
 
         resultBox.setText(result);
+    }
+
+    public void onClickSwap(View view) {
+        isEncode = !isEncode;
+        if (isEncode){
+            textBlock_EncodeTitle.setText(R.string.EncodeAct);
+            btn_ChiperAct.setText(R.string.EncodeAct);
+        } else {
+            textBlock_EncodeTitle.setText(R.string.DecodeAct);
+            btn_ChiperAct.setText(R.string.DecodeAct);
+        }
     }
 }
