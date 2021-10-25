@@ -21,7 +21,7 @@
         <activity android:name=".EncodeActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".SettingsActivity" />
+        <activity android:name=".SettingsActivity"/>
     </application>
 
 </manifest>

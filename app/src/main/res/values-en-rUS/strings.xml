@@ -20,4 +20,7 @@
     <string name="EncodeAct">Encode Act</string>
     <string name="DecodeAct">Decode Act</string>
     <string name="Result">Result</string>
+    <string name="Theme">Application Theme</string>
+    <string name="Light">Light</string>
+    <string name="Dark">Dark</string>
 </resources>

@@ -22,5 +22,9 @@
     <string name="EncodeAct">Зашифровка</string>
     <string name="DecodeAct">Расшифровка</string>
     <string name="Result">Результат</string>
+    <string name="Theme">Тема приложения</string>
+    <string name="Light">Светлая</string>
+    <string name="Dark">Тёмная</string>
+
 
 </resources>

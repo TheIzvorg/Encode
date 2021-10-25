@@ -2,6 +2,7 @@ package com.example.encode_isp95vb_rubanov;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -19,6 +20,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.view.ContextThemeWrapper;
 
 import java.util.Locale;
 
@@ -27,6 +30,11 @@ public class SettingsActivity extends AppCompatActivity {
     CheckBox checkBox;
     TextView textBox_AudioVolume;
     SeekBar seekBar;
+
+
+    public static void setTheme(Context baseContext) {
+        Context themedContext = new ContextThemeWrapper(baseContext, R.style.Theme_Encode_ISP95VB_Rubanov);
+    }
 
     public static void setLocale(Activity activity, String languageCode) {
         Locale locale = new Locale(languageCode);
@@ -120,6 +128,7 @@ public class SettingsActivity extends AppCompatActivity {
             }
         }
 
+
         dialog.setSingleChoiceItems(lang, currentLocaleId, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int checkedItem) {
@@ -153,5 +162,31 @@ public class SettingsActivity extends AppCompatActivity {
     public void onClickBack(View view) {
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
+    }
+
+    public void onClickChangeTheme(View view) {
+        String[] lang = {getResources().getString(R.string.Light),
+                getResources().getString(R.string.Dark)};
+
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle(R.string.TextBox_ChooseLang);
+
+        dialog.setSingleChoiceItems(lang, 0, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int checkedItem) {
+                int newLang = 0;
+                switch (checkedItem){
+                    case 0:
+//                        setTheme(AppCompatDelegate.MODE_NIGHT_NO);
+                        break;
+                    case 1:
+//                        setTheme(AppCompatDelegate.MODE_NIGHT_YES);
+                        break;
+                }
+                dialogInterface.cancel();
+            }
+        });
+        AlertDialog alert = dialog.create();
+        alert.show();
     }
 }
