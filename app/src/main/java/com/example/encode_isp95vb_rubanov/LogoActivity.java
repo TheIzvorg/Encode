@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class LogoActivity extends AppCompatActivity {
@@ -31,8 +32,12 @@ public class LogoActivity extends AppCompatActivity {
 
         Thread thread = new Thread(){
             public void run(){
+                if(Settings.isLoaded()){
+                    return;
+                }
                 try {
                     TimeUnit.SECONDS.sleep(5);
+                    Settings.setLoaded(true);
                     Intent intent = new Intent(LogoActivity.this, MainActivity.class);
                     startActivity(intent);
                 } catch (Exception e) {
@@ -45,5 +50,10 @@ public class LogoActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
     }
 }

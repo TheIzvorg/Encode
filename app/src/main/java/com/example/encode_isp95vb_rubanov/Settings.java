@@ -9,6 +9,7 @@ public class Settings {
     private static Integer mAudioVolume = 90;
     private static Locale mLocale = new Locale("ru");
     private static int mCurrLocaleResId = R.string.RussianLang;
+    private static boolean isLoaded = false;
 
     @IntRange(from = 0, to = 100)
     public static int getAudioVolume(){
@@ -33,5 +34,13 @@ public class Settings {
 
     public static void setCurrLocaleResId(@NonNull Integer currentLocale){
         mCurrLocaleResId = currentLocale;
+    }
+
+    public static boolean isLoaded() {
+        return isLoaded;
+    }
+
+    public static void setLoaded(boolean b) {
+        isLoaded = b;
     }
 }

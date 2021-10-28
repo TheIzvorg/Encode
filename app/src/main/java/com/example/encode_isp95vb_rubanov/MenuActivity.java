@@ -1,6 +1,10 @@
 package com.example.encode_isp95vb_rubanov;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -10,7 +14,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -49,10 +55,15 @@ public class MenuActivity extends AppCompatActivity {
         init();
     }
 
+    @SuppressLint("ResourceAsColor")
     void addNewRadioBtnInGroup(String name){
         RadioButton radioButton = new RadioButton(this);
         radioButton.setText(name);
         radioButton.setTextSize(26);
+        getResources().newTheme();
+        radioButton.setTextColor(R.color.TextColor);
+        radioButton.setHintTextColor(R.color.TextColor);
+        radioButton.setLinkTextColor(R.color.TextColor);
         radioButton.setId(radioGroup.getChildCount());
         radioGroup.addView(radioButton);
     }

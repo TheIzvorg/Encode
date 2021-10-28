@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_screen"
+    android:background="@color/Background"
     tools:context=".MainActivity">
 
     <Button
@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/button_background"
         android:onClick="LogInToSystem"
+        android:textColor="@color/TextColor"
         android:text="@string/btn_LogIn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,6 +28,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:onClick="goToSignInWindow"
+        android:textColor="@color/TextColor"
         android:text="@string/btn_Registration"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +42,9 @@
         android:layout_width="283dp"
         android:layout_height="51dp"
         android:ems="10"
+        android:background="@color/TextBoxBackground"
         android:inputType="textPersonName"
+        android:textColor="@color/TextColor"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +59,9 @@
         android:layout_width="282dp"
         android:layout_height="54dp"
         android:ems="10"
+        android:background="@color/TextBoxBackground"
         android:inputType="textPassword"
+        android:textColor="@color/TextColor"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,5 +70,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.415"
         tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/TextBlock_LogIn"
+        android:textColor="@color/TextColor"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/textBox_Login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.838" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/TextColor"
+        android:textSize="40sp"
+        android:text="@string/TextBlock_Password"
+        app:layout_constraintBottom_toTopOf="@+id/textBox_Password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBox_Login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

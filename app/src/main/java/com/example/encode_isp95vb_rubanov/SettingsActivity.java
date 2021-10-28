@@ -32,9 +32,9 @@ public class SettingsActivity extends AppCompatActivity {
     SeekBar seekBar;
 
 
-    public static void setTheme(Context baseContext) {
-        Context themedContext = new ContextThemeWrapper(baseContext, R.style.Theme_Encode_ISP95VB_Rubanov);
-    }
+//    public static void setTheme(Context baseContext) {
+//        Context themedContext = new ContextThemeWrapper(baseContext, R.style.Theme_Encode_ISP95VB_Rubanov);
+//    }
 
     public static void setLocale(Activity activity, String languageCode) {
         Locale locale = new Locale(languageCode);
@@ -171,16 +171,17 @@ public class SettingsActivity extends AppCompatActivity {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle(R.string.TextBox_ChooseLang);
 
-        dialog.setSingleChoiceItems(lang, 0, new DialogInterface.OnClickListener() {
+        dialog.setSingleChoiceItems(lang, -1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int checkedItem) {
-                int newLang = 0;
                 switch (checkedItem){
                     case 0:
-//                        setTheme(AppCompatDelegate.MODE_NIGHT_NO);
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//                        setTheme(R.style.Theme_Light);
                         break;
                     case 1:
-//                        setTheme(AppCompatDelegate.MODE_NIGHT_YES);
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//                        setTheme(R.style.Theme_Dark);
                         break;
                 }
                 dialogInterface.cancel();
